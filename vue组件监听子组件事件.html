@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="blog-posts-events-demo">
+    <!--<blog-post
+            hello,world!
+    ></blog-post>-->
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:enlarge-text="postFontSize += 0.1"
+        ></blog-post>
+        <!-- 有了这个 v-on:enlarge-text="postFontSize += 0.1" 监听器，父级组件就会接收该事件并更新 postFontSize 的值。-->
+    </div>
+</div>
+<script>
+    Vue.component('blog-post', {
+        props: ['post'],
+        template: `
+    <div class="blog-post">
+      <button v-on:click="$emit('enlarge-text')">
+        同时子组件可以通过调用内建的 $emit 方法 并传入事件名称来触发一个事件：
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+    });
+
+    new Vue({
+        el: '#blog-posts-events-demo',
+        data: {
+            posts: [
+                { id: 1, title: 'Vue1',content:"xxxxx" },
+                { id: 2, title: 'Vue2',content:"yyyyy" },
+                { id: 3, title: 'Vue3',content:"zzzzzz" }
+            ],
+            postFontSize: 1
+        }
+    })
+
+
+
+</script>
+</body>
+</html>

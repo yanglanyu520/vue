@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+我们强烈推荐遵循 W3C 规范中的自定义组件名 (字母全小写且必须包含一个连字符)。这会帮助你避免和当前以及未来的 HTML 元素相冲突。
+-->
+<div id="app">
+    <component-a></component-a>
+    <component-b></component-b>
+    <component-c></component-c>
+</div>
+
+
+<script>
+    Vue.component('component-a', { /* ... */ })
+    Vue.component('component-b', { /* ... */ })
+    Vue.component('component-c', { /* ... */ })
+
+    /*写参数*/
+    new Vue({
+        el: '#app'
+
+    })
+
+
+</script>
+
+
+</body>
+</html>

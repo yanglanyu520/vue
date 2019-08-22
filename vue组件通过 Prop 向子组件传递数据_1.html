@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="blog-post-demo">
+    <!--使用组件-->
+    <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:title="post.title"
+    ></blog-post>
+</div>
+
+<script>
+    /*申明一个组件*/
+    Vue.component('blog-post', {
+        props: ['title'],
+        /*页面的模板*/
+        template: '<h3>{{ title }}</h3>'
+    })
+    /*new一个新的vue对象*/
+    new Vue({
+        el: '#blog-post-demo',
+        data: {
+            /*要提交的参数*/
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

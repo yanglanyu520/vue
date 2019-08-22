@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<!--在这些情况下，你可以通过一个普通的 JavaScript 对象来定义组件：-->
+<script>
+    var ComponentA = { /* ... */ }
+    var ComponentB = { /* ... */ }
+    var ComponentC = { /* ... */ }
+
+
+    new Vue({
+        el: '#app',
+        components: {
+            'component-a': ComponentA,
+            'component-b': ComponentB
+        }
+    })
+
+</script>
+
+<!--
+注意局部注册的组件在其子组件中不可用。例如，如果你希望 ComponentA 在 ComponentB 中可用，则你需要这样写：
+-->
+<script>
+    var ComponentA = { /* ... */ }
+
+    var ComponentB = {
+        components: {
+            'component-a': ComponentA
+        },
+        // ...
+    }
+
+</script>
+<!--
+或者如果你通过 Babel 和 webpack 使用 ES2015 模块，那么代码看起来更像：
+-->
+<script>
+    import ComponentA from './ComponentA.vue'
+
+    export default {
+        components: {
+            ComponentA
+        },
+        // ...
+    }
+
+</script>
+
+
+
+</body>
+</html>

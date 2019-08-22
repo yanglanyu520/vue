@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <click-counter>
+
+    </click-counter>
+</div>
+<script>
+    Vue.component('click-counter', {
+        /*组件模板*/
+        template: '<button @click="count++">现在是{{count}}</button>',
+        data () {
+            return {
+                count: 0
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

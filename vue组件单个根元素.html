@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--every component must have a single root element (每个组件必须只有一个根元素)-->
+<div id="blog-post-demo">
+    <!--使用组件-->
+    <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:post="post"
+></blog-post>
+</div>
+
+<script>
+    /*申明一个组件*/
+    Vue.component('blog-post', {
+        props: ['post'],
+        /*页面的模板*/
+        template:`
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <h1 v-html="post.content"></h1>
+    </div>
+  `
+
+    })
+    /*new一个新的vue对象*/
+    new Vue({
+        el: '#blog-post-demo',
+        data: {
+            /*要提交的参数*/
+            posts: [
+                { id: 1, title: 'Vue1',content:"xxxxx" },
+                { id: 2, title: 'Vue2',content: "yyyyy" },
+                { id: 3, title: 'Vue3',content:"zzzzzz" }  { id: 1, title: 'Vue1',content:"xxxxx" },
+                { id: 2, title: 'Vue2',content: "yyyyy" },
+                { id: 3, title: 'Vue3',content:"zzzzzz" }
+            ]
+        }
+    })
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
