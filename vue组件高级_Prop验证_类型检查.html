@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<script>
+    function Person (firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+Vue.component('blog-post', {
+    props: {
+        author: Person
+    }
+})
+</script>
+</body>
+</html>
