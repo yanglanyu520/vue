@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Vue 根实例
+    new Vue({
+        data: {
+            foo: 1
+        },
+        computed: {
+            bar: function () { /* ... */ }
+        },
+        methods: {
+            baz: function () { /* ... */ }
+        }
+    })
+    // 获取根组件的数据
+    this.$root.foo
+
+    // 写入根组件的数据
+    this.$root.foo = 2
+
+    // 访问根组件的计算属性
+    this.$root.bar
+
+    // 调用根组件的方法
+    this.$root.baz()
+
+</script>
+
+</body>
+</html>

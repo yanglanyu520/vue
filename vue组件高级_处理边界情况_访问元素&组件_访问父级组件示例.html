@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<google-map>
+    <google-map-markers v-bind:places="iceCreamShops"></google-map-markers>
+</google-map>
+
+<google-map>
+    <google-map-region v-bind:shape="cityBoundaries">
+        <google-map-markers v-bind:places="iceCreamShops"></google-map-markers>
+    </google-map-region>
+</google-map>
+
+<script>
+    var map = this.$parent.map || this.$parent.$parent.map
+</script>
+
+</body>
+</html>
